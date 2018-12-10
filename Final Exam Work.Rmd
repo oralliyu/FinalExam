@@ -1,0 +1,85 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+rm(list = ls())
+
+# Station data; 21 KB... downloads pretty fast
+download.file(url="https://s3.amazonaws.com/stat.184.data/BikeShare/DC_Stations.csv",destfile='DC_Stations.csv', method='curl')
+
+# Trips data; 74.6 MB... takes a few moments to download
+download.file(url="https://s3.amazonaws.com/stat.184.data/BikeShare/Trips.csv",destfile='Trips.csv', method='curl')
+
+Station <- read.csv("DC_Stations.csv")
+
+Trips <- read.csv("Trips.csv")
+
+```
+
+## Question 16
+
+```{r}
+
+nrow(Trips)
+  
+
+```
+
+
+##Question 17
+
+```{r}
+
+Station %>%
+  arrange(nbEmptyDocks)
+  
+```
+
+
+##Question 19
+
+```{r}
+
+Trips %>%
+  filter(sstation == "Lincoln Memorial") %>%
+  group_by(estation) 
+  
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
